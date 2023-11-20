@@ -14,5 +14,3 @@ for ( i = 0; i < skills.length; i ++ ) {
 
 copyright.innerHTML = `Mariia Domarkas ${thisYear}`;
 footer.appendChild(copyright);
-
-
