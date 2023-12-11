@@ -14,3 +14,48 @@ for ( i = 0; i < skills.length; i ++ ) {
 
 copyright.innerHTML = `Mariia Domarkas ${thisYear}`;
 footer.appendChild(copyright);
+
+const messageForm = document.getElementsByName('leave_message')[0];
+const messageSection = document.getElementById('messages');
+
+messageSection.style.display = "none";
+
+const messageList = messageSection.querySelector('ul');
+const newMessage = document.createElement('li');
+
+
+    
+messageForm.addEventListener( 'submit', (e) => {
+    e.preventDefault();
+    
+    messageSection.style.display = '';
+    
+    const userName = e.target.usersName.value;
+    const userEmail =  e.target.usersEmail.value;
+    const userMessage =  e.target.usersMessage.value;
+
+   
+    newMessage.innerHTML = `<a href="mailto:${userEmail}"> ${userName}</a> wrote: <span>${userMessage} </span>`;
+    
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'remove';
+    removeButton.type = 'button';
+
+    removeButton.addEventListener( 'click', (e) => { 
+        const entry = e.target.parentNode;
+        entry.remove();
+        if (!messageList.contains(newMessage)){
+            messageSection.style.display = "none";
+        }
+    });
+
+    newMessage.appendChild(removeButton);
+    messageList.appendChild(newMessage);
+    
+    
+
+    messageForm.reset();
+
+});
+
+
