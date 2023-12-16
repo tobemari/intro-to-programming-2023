@@ -1,0 +1,198 @@
+/* Remove list styles on ul, ol elements */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+body {
+  background-color: #fafafc;
+  color: #2b2b4a;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+section {
+  padding: 1.5rem 0;
+}
+p {
+  margin-bottom: 1rem;
+}
+.container {
+  padding: 2rem 0;
+  margin: 0 auto;
+  max-width: 1024px;
+  width: 90vw;
+}
+.menu {
+  display: flex;
+  align-items: center;
+}
+.menu__item {
+  font-size: 1.125rem;
+}
+.menu__item--large {
+  font-size: 1.25rem;
+}
+.menu__item:not(:last-child) {
+  margin-right: 1rem;
+}
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.underline-one {
+	color: #2b2b4a; 
+    position: relative;
+    cursor: pointer;
+    text-decoration: none; 
+}
+.underline-one:after {
+	content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; 
+    background-color: 2b2b4a; 
+    transition: width 0.5s; 
+}
+.underline-one:hover:after {
+	content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; 
+    background-color: #0072e0; 
+    transition: width 0.5s; 
+}
+h1,
+h2 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+img {
+    width: 100px;
+    border-radius: 6px;
+  }
+#skills ul li {
+  border: 2px solid #0072e0;
+  color: #0072e0;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  justify-content: space-between;
+  margin-inline: 2px;
+  border-radius: 3px;
+}
+.link {
+  color: #2b2b4a;
+  display: inline-block;
+  text-decoration: none;
+}
+.link--no-color {
+  color: inherit;
+}
+.link:not(.link--no-decor):hover::after,
+.link:not(.link--no-decor):focus::after {
+  border-bottom: 2px solid #0072e0;
+  content: '';
+  display: block;
+}
+.link--no-color:hover::after,
+.link--no-color:focus::after {
+  border-color: #2b2b4a;
+}
+#experience li,
+#connect li {
+  padding: 1.5px;
+}
+.card:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.card {
+    background-color: #eeeeee;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem
+}
+.emphasis {
+  font-style: italic;
+  color: #808092;
+}
+#leaveMes label {
+  font-size: 14px;
+  color: #808092;
+}
+#leaveMes input,
+#leaveMes textarea {
+  font-size: 14px;
+  color: #2b2b4a;
+  border: 2px solid #35383c;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color:#808092;
+  border-image: initial;
+} 
+#leaveMes button {
+  background-color: #0072e0;
+  color:#fafafc;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+.list {
+  box-sizing: border-box;
+}
+.list__item:not(:last-child) {
+    border-bottom: 1px solid #55556e;
+}
+.list__item {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  justify-content: space-between;
+  margin-inline: 2px;
+  border-radius: 3px;
+}
+.remove {
+  background-color: #ff0000;
+  color:#fafafc;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+footer {
+  background-color: #eeeeee;
+  font-size: 1.125rem;
+}
