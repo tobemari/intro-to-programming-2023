@@ -22,9 +22,7 @@ const messageSection = document.getElementById('messages');
 
 messageSection.style.display = 'none';
 
-const messageList = messageSection.querySelector('ul');
-const newMessage = document.createElement('li');
-newMessage.className = 'list__item';
+
 
 
     
@@ -36,8 +34,12 @@ messageForm.addEventListener( 'submit', (e) => {
     const userName = e.target.usersName.value;
     const userEmail =  e.target.usersEmail.value;
     const userMessage =  e.target.usersMessage.value;
+
+    const messageList = messageSection.querySelector('ul');
+    const newMessage = document.createElement('li');
+  
    
-    newMessage.innerHTML = `<a href="mailto:${userEmail}"> ${userName}</a> wrote: <span>${userMessage} </span>`;
+    newMessage.innerHTML += `<div><a class="link link--no-decor underline-one" href="mailto:${userEmail}"> ${userName}</a> wrote: <span>${userMessage} </span></div>`;
     
     const removeButton = document.createElement('button');
     removeButton.textContent = 'remove';
