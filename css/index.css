@@ -26,6 +26,13 @@ textarea,
 select {
   font: inherit;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #fafafc;
+}
+
 body {
   background-color: #fafafc;
   color: #2b2b4a;
@@ -195,4 +202,61 @@ img {
 footer {
   background-color: #eeeeee;
   font-size: 1.125rem;
+}
+
+#experience li {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "role emphasis";
+  }
+  .remove {
+    margin-left: auto;
+  }
+  #messages li {
+    display: flex;
+    align-items: baseline;
+  }
+
+.role {
+  grid-area: role;
+}
+
+.emphasis {
+  margin-left: auto;
+  grid-area: emphasis;
+}
+
+@media (max-width: 769px) {
+  #experience li {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "role"
+    "emphasis";
+}
+
+.emphasis {
+  margin-left: 0;
+}
+
+#messages ul {
+  display: flex;
+  flex-direction: column;
+}
+
+#skills ul {
+  display: flex;
+  flex-direction: column;
+}
+
+#skills li {
+margin-bottom: 10px;
+}
+
+  .menu_mobile {
+    display: none;
+  }
 }
