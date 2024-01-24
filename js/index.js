@@ -14,7 +14,7 @@ for ( i = 0; i < skills.length; i ++ ) {
     skillsList.appendChild(skill);
 };
 
-copyright.innerHTML = `Mariia Domarkas ${thisYear}`;
+copyright.innerHTML = `&#169 Mariia Domarkas ${thisYear}`;
 footer.appendChild(copyright);
 
 const messageForm = document.getElementsByName('leave_message')[0];
@@ -22,10 +22,6 @@ const messageSection = document.getElementById('messages');
 
 messageSection.style.display = 'none';
 
-
-
-
-    
 messageForm.addEventListener( 'submit', (e) => {
     e.preventDefault();
     
@@ -46,10 +42,11 @@ messageForm.addEventListener( 'submit', (e) => {
     removeButton.type = 'button';
     removeButton.className = 'remove';
 
-    removeButton.addEventListener( 'click', (e) => { 
+    removeButton.addEventListener('click', (e) => { 
         const entry = e.target.parentNode;
+        console.log(entry);
         entry.remove();
-        if (!messageList.contains(newMessage)){
+        if (messageList.childElementCount == 0){
             messageSection.style.display = "none";
         }
     });
@@ -61,4 +58,22 @@ messageForm.addEventListener( 'submit', (e) => {
 
 });
 
+let githubRequest = new XMLHttpRequest();
+githubRequest.open('GET', 'https://api.github.com/users/tobemari/repos');
+githubRequest.send();
 
+githubRequest.addEventListener("load", (e) => {
+
+    let repositories = JSON.parse(githubRequest.response);
+    let projectSection = document.querySelector('#projects');
+    let projectList = projectSection.querySelector('ul');
+    for (let i=0; i<repositories.length; i += 1) {
+        let project = document.createElement('li');
+        project.innerHTML = `<a class="link link--no-decor underline-one" href=${repositories[i].html_url}>${repositories[i].name}</a>`;
+        projectList.appendChild(project);
+    }
+    console.log(repositories);
+});
+
+
+   

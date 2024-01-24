@@ -43,6 +43,7 @@ body {
 }
 section {
   padding: 1.5rem 0;
+  scroll-margin-top: 175px;
 }
 p {
   margin-bottom: 1rem;
