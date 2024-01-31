@@ -58,22 +58,15 @@ messageForm.addEventListener( 'submit', (e) => {
 
 });
 
-let githubRequest = new XMLHttpRequest();
-githubRequest.open('GET', 'https://api.github.com/users/tobemari/repos');
-githubRequest.send();
-
-githubRequest.addEventListener("load", (e) => {
-
-    let repositories = JSON.parse(githubRequest.response);
-    let projectSection = document.querySelector('#projects');
-    let projectList = projectSection.querySelector('ul');
-    for (let i=0; i<repositories.length; i += 1) {
-        let project = document.createElement('li');
-        project.innerHTML = `<a class="link link--no-decor underline-one" href=${repositories[i].html_url}>${repositories[i].name}</a>`;
+fetch('https://api.github.com/users/tobemari/repos') 
+    .then(response => response.json())
+    .then(data => {
+        const projectSection = document.querySelector('#projects');
+        const projectList = projectSection.querySelector('ul');
+        for (let i=0; i<data.length; i += 1) {
+            const project = document.createElement('li');
+        project.innerHTML = `<a class="link link--no-decor underline-one" href=${data[i].html_url}>${data[i].name}</a>`;
         projectList.appendChild(project);
-    }
-    console.log(repositories);
-});
-
-
-   
+        }
+    })
+    .catch(error => console.log('Looks like there was a problem!', error));
